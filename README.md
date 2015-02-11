@@ -25,8 +25,6 @@ Redis is ***built for speed***.
 
 ### Key-Value (KV) Store
 
-
-
 There are *many* KV Stores to chose from: http://en.wikipedia.org/wiki/NoSQL#Key-value_stores
 our *favourites* are:
 + [**Riak**](http://en.wikipedia.org/wiki/Riak) - great for fault tolerance and data replication
@@ -36,14 +34,9 @@ our *favourites* are:
 We're here to focus on Redis because it has the *right balance* of
 simplicity (great for beginners and pros alike) and speed.
 
-
-### Many Features (Learn/Use the *Basics First*)
-
-Redis has *many* fantastic *features*
-
 ### Name: what does Redis mean/stand for?
 
-The name Redis means **RE**mote **DI**ctionary **S**erver
+The name Redis is an acronym for: **RE**mote **DI**ctionary **S**erver
 
 A Dictionary (see: http://xlinux.nist.gov/dads/HTML/dictionary.html) is another
 way of saying "Key-Value Store";  
@@ -78,14 +71,62 @@ for (var k in dictionary) {
   console.log(k +': ' +dictionary[k] );
 }
 ```
-this will output:
+output:
+
+![bicycle-definition](https://cloud.githubusercontent.com/assets/194400/7215446/4bbc5fd8-e5d0-11e4-80ca-a52d9265186f.png)
 
 
+### Many Features (Learn/Use the *Basics First*)
+
+Redis has *many* fantastic *features* not limited to just SET/GET/DELETE
+key:value pairs. You can also ***atomically***
+
++ [***append***](http://redis.io/commands/append) lets us *add* data to record
+without having to read it first. ()
+
+```sh
+redis> EXISTS mykey
+(integer) 0
+redis> APPEND mykey "Hello"
+(integer) 5
+redis> APPEND mykey " World"
+(integer) 11
+redis> GET mykey
+"Hello World"
+```
+
++ [**incr**ment](http://redis.io/commands/incr) a value (e.g a ***counter***) no
+delay having to *read* the current value *before* you can increase it by one.
+
+```sh
+redis> SET mykey "10"
+OK
+redis> INCR mykey
+(integer) 11
+redis> GET mykey
+"11"
+```
+
++ [***PubSub***](http://redis.io/commands/pubsub) lets you "listen" for changes
+in the value of a key.
+Useful if you ant to know when something has been changed by someone.
+e.g: you have two devices (Desktop & Mobile) logged into an app,
+something gets updated on one of them, how do we reflect this change on the other?
+Answer: all devices "*subscribe*" to the change event and receive the latest
+values as a result.
+
+If you don't get *overwhelmed* by lots of new words and want a sneak peek  
+at the all the cool commands you can use in Redis check: http://redis.io/commands
+But we're getting ahead of ourselves, lets focus on the basics first.
 
 ### Use Case
 
-***sessions*** in your app (which require a DB/io read on *every request* but don't much
-in the way of *content*)
++ ***sessions*** in your app (which require a DB/io read on *every request* but
+  don't contain *content*) should be checked/set as quickly as possible.
++ ***list online people*** in a chat application the list of people/devices
+that are connected changes frequently (as people join/leave). Wouldn't it be
+useful to be able to *subscribe* to this list and be notified when it changes?
+
 
 ### Can't I Just Use MongoDB for Everything?
 
@@ -156,3 +197,5 @@ http://www.robupcraft.com/why-redis-is-awesome
 http://stackoverflow.com/questions/10558465/memcached-vs-redis
 + What are the differences between MongoDB and Redis? (v. basic)
 http://stackoverflow.com/questions/6445899/what-are-the-differences-between-mongodb-and-redis
++ How to Pipeline in node.js to Redis:
+http://stackoverflow.com/questions/21416529/how-to-pipeline-in-node-js-to-redis
