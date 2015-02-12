@@ -40,6 +40,29 @@ The name Redis is an acronym for: **RE**mote **DI**ctionary **S**erver
 
 A Dictionary (see: http://xlinux.nist.gov/dads/HTML/dictionary.html) is another
 way of saying "Key-Value Store";  
+In other programming languages a dictionary is known as a "*map*"
+or ["*associative array*"](http://en.wikipedia.org/wiki/Associative_array#Example)
+and would *look* like this:
+```js
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "isAlive": true,
+  "age": 25,
+  "address": {
+    "streetAddress": "21 2nd Street",
+    "city": "New York",
+    "state": "NY",
+    "postalCode": "10021-3100"
+  },
+  "children": [],
+  "spouse": null
+}
+```
+The *observant* reader will notice that this looks *exactly* like a
+[**JSON**](http://en.wikipedia.org/wiki/JSON) Object; that's because it *is*!
+This is how we represent a set of key:value pairs in JS.
+
 It can be easy to think of the real-world
 dictionary, *words* are the **keys** and their definitions are the ***values***.  
 Imagine you are the person writing the definitions in a dictionary,  
@@ -146,7 +169,8 @@ then there's ***only one*** place to store your data.
 
 (A Tutorial using Redis with Node.js)
 
-
+***First thing*** you need to do - if you haven't already - is ***go through*** the
+***online tutorial***: http://try.redis.io/
 
 
 
@@ -181,12 +205,10 @@ Its faster, so what's the catch?
 
 ## Background Reading
 
+### General
+
 + ***What is Redis*** and what do I **use it for**? (good list of **usecases**)  
 http://stackoverflow.com/questions/7888880/what-is-redis-and-what-do-i-use-it-for
-+ Storing ***hundreds of millions*** of simple key-value pairs in Redis **INSTAGRAM ENGINEERING** Blog:  
-http://instagram-engineering.tumblr.com/post/12202313862/storing-hundreds-of-millions-of-simple-key-value
-+ Redis Labs Achieves Over ***1.2 Million Transactions per Second*** on a **Single** Amazon Web Services (AWS) **Instance**:  
-http://www.marketwired.com/press-release/redis-labs-achieves-over-12-million-transactions-per-second-on-single-amazon-web-services-1965269.htm
 + Redis Wikipedia: http://en.wikipedia.org/wiki/Redis (history and background)
 + Good **comparison** of **NoSQL** datastores: http://kkovacs.eu/cassandra-vs-mongodb-vs-couchdb-vs-redis
 + Why ***Redis beats Memcached*** for caching:  
@@ -199,3 +221,19 @@ http://stackoverflow.com/questions/10558465/memcached-vs-redis
 http://stackoverflow.com/questions/6445899/what-are-the-differences-between-mongodb-and-redis
 + How to Pipeline in node.js to Redis:
 http://stackoverflow.com/questions/21416529/how-to-pipeline-in-node-js-to-redis
++ List of Redis Features:
+https://redis-docs.readthedocs.org/en/latest/Features.html
++ 11 Common Web Use Cases Solved In Redis:  
+http://highscalability.com/blog/2011/7/6/11-common-web-use-cases-solved-in-redis.html
+
+### Tips and Tricks
+
++ Redis Tips (Mozilla): https://developer.mozilla.org/en-US/docs/Mozilla/Redis_Tips
+
+### Performance & Benchmarks
+
++ How fast is Redis? http://redis.io/topics/benchmarks
++ Storing ***hundreds of millions*** of simple key-value pairs in Redis **INSTAGRAM ENGINEERING** Blog:  
+http://instagram-engineering.tumblr.com/post/12202313862/storing-hundreds-of-millions-of-simple-key-value
++ Redis Labs Achieves Over ***1.2 Million Transactions per Second*** on a **Single** Amazon Web Services (AWS) **Instance**:  
+http://www.marketwired.com/press-release/redis-labs-achieves-over-12-million-transactions-per-second-on-single-amazon-web-services-1965269.htm
