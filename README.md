@@ -147,6 +147,8 @@ something gets updated on one of them, how do we reflect this change on the othe
 Answer: all devices "*subscribe*" to the change event and receive the latest
 values as a result.
 
+
+
 If you don't get *overwhelmed* by lots of new words and want a sneak peek  
 at the all the cool commands you can use in Redis check: http://redis.io/commands
 But we're getting *ahead of ourselves*, lets focus on the basics first.
@@ -177,19 +179,68 @@ then there's ***only one*** place to store your data.
 
 ## How?
 
-(A Tutorial using Redis with Node.js)
+### First Learn the *Fundamentals*
 
 ***First thing*** you need to do - if you haven't already - is ***go through*** the
-***online tutorial***: http://try.redis.io/
+***online tutorial***: http://try.redis.io/ (30mins to learn and take notes)
 
+#### Make Sure you *Understand*
 
-## Using Redis Commander to View/Set your Data
++ [**SET**](http://redis.io/commands/set) - SET a key value pair: `SET server:name "fido"`
++ [**GET**](http://redis.io/commands/get) - GET the value of a key: `GET server:name => "fido"`
++ [**INCR**](http://redis.io/commands/incr) increment a counter (*integer*)
+and [**DECR**](http://redis.io/commands/decr) decrement a counter (decremented key needs to already exist)
+```sh
+redis> SET count 10
+redis> INCR count
+(integer) 11
+redis> DECR count
+(integer) 10
+```
++ [**EXPIRE**](http://redis.io/commands/expire) means you can delete data after a specified amount of time.
+e.g: expire a key after 10 seconds
+```sh
+redis> SET mykey "Hello"
+OK
+redis> EXPIRE mykey 10
+(integer) 1
+redis> TTL mykey
+(integer) 10
+# wait for 10 seconfds then
+```
++ **Lists** - A list is a series of ordered values (comparable to an Array in JS)
+  + [**RPUSH**](http://redis.io/commands/rpush)
+  + [**LPUSH**]()
+  + [**LRANGE**]()
 
+```sh
+RPUSH fruits "Apple"
+RPUSH fruits "Banana"
+LPUSH fruits "Mango"
+LRANGE fruits 0 -1 => 1) "Mango", 2) "Apple", 3) "Banana"
+LRANGE fruits 0 1 => 1) "Mango", 2) "Apple"
+LRANGE fruits 1 2 => 1) "Apple", 2) "Banana"
+LLEN fruits => 3
+```
++ **Sets** -
+
+(A Tutorial using Redis with Node.js)
+
+### Installation
+
+> The suggested way of installing Redis is compiling it from sources as Redis has no dependencies other than a working GCC compiler and libc.  
+> Quick Start: http://redis.io/topics/quickstart  
+> However for people *stuck* on Windows (if you don't already have a C Compiler),
+we *recommend* using Vagrant
+
+### Using Redis Commander to View/Set your Data
+
+For people who prefer a 
 https://github.com/joeferner/redis-commander
 
 
 
-#### Alternatives
+#### Alternative GUIs
 
 + Redis Desktop Manager https://github.com/uglide/RedisDesktopManager (a desktop app)
 + List of others: https://redislabs.com/blog/so-youre-looking-for-the-redis-gui
