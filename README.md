@@ -222,9 +222,20 @@ LRANGE fruits 0 1 => 1) "Mango", 2) "Apple"
 LRANGE fruits 1 2 => 1) "Apple", 2) "Banana"
 LLEN fruits => 3
 ```
-+ **Sets** -
+
+#### Also Good To Know but *Not Essential* for *this* Introductory Tutorial
+
++ **Sets** - Redis Sets are an unordered collection of Strings.
+It is possible to add, remove, and test for existence of members in O(1)
+(*constant time* regardless of the number of elements contained inside the Set).
+SISMEMBER tests if the given value is in the set.
+It returns 1 if the value is there and 0 if it is not.
+
++ Data Types: http://redis.io/topics/data-types
 
 (A Tutorial using Redis with Node.js)
+
+
 
 ### Installation
 
@@ -248,7 +259,7 @@ These three commands will
 3. SSH into the Vagrant (Ubuntu) VM so you can use the vagrant CLI
 
 
-Boot the VM by running `vagrant up`
+To boot the VM with Redis open a new terminal window/tab (in the learn-redis directory) and issue the command: `vagrant up`
 ![learn-redis-vagrant-up](https://cloud.githubusercontent.com/assets/194400/7217523/747eeb3c-e627-11e4-8289-0b82c0fff909.png)
 After a few minutes of installing you will see that Redis is running:
 ![learn-vagrant-redis-running](https://cloud.githubusercontent.com/assets/194400/7218144/febe2b56-e653-11e4-88cf-859a65ccd9f2.png)
@@ -256,11 +267,22 @@ After a few minutes of installing you will see that Redis is running:
 on **Port 6379** and **PID** (process ID) **5786**
 ![learn-redis-vagrant-ssh-redis-running](https://cloud.githubusercontent.com/assets/194400/7217526/748d0fdc-e627-11e4-8075-56c1f5e8ca22.png)
 
-To use Redis from the **command line** log into the VM using `vagrant ssh`:
+To use Redis from the **command line** (open a new terminal window/tab and) log into the VM using `vagrant ssh`:
 ![learn-redis-vagrant-ssh](https://cloud.githubusercontent.com/assets/194400/7217524/7486d3e2-e627-11e4-8e28-e2fa05c8d431.png)
 Then confirm that the **CLI** is working by issuing the command `redis-cli ping`:
 ![learn-redis-vagrant-ssh-redis-ping](https://cloud.githubusercontent.com/assets/194400/7217525/7489c638-e627-11e4-9ca6-ca710dd54915.png)
 
+To **exit** the VM you just logged into, simply type `exit` in the terminal and hit the [return] key.
+![learn-redis-exit-vagrant-vm](https://cloud.githubusercontent.com/assets/194400/7218297/3bd595b4-e65f-11e4-8b3a-108a8243d486.png)
+
+To **close** the Redis **server** runing on the VM, press the [ctrl] + [C] keys on your keyboard (*twice*).
+![learn-redis-exit-redis](https://cloud.githubusercontent.com/assets/194400/7218303/8e4f314c-e65f-11e4-8961-8dbfe4442883.png)
+
+And to **shut down** the Vagrant VM (to free up the memory on your computer), issue the `vagrant halt` command in your terminal:
+![learn-redis-vagrant-halt](https://cloud.githubusercontent.com/assets/194400/7218308/e881bcc0-e65f-11e4-8d0d-fe8559fe45f0.png)
+
+**Note**: your **VM** is ***preserved*** (still saved on your hard drive) so you can use it again for further redis-development simply by issuing the `vagrant up` command (from within a working directory that has the Vagrantfile and .vagrant)
+If you are short on disk space, you can always **delete** the VM *completely* by issuing the `vagrant destroy` command. 
 **Note**: If you are *running Linux* on your laptop/dev machine
 and prefer not to have the overhead of running Vagrant
 you can simply **copy** the **installation commands** from the Vagrantfile
