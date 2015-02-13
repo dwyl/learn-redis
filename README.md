@@ -173,7 +173,7 @@ MongoDB is a good tool. We like to think of it as
 [the ***Hammer*** of Databases](http://en.wiktionary.org/wiki/if_all_you_have_is_a_hammer,_everything_looks_like_a_nail)  
 ... a *general purpose* Datastore that works well for *most* NoSQL situations.  
 But if you need to save/access ***Millions of Records Per Second*** (*yes, you read that right!*)  
-then there's ***only one*** place to store your data.
+then there's ***only one*** place to store your data; ***Redis***.
 
 ![there can be only one](https://izeeshan.files.wordpress.com/2014/08/there-can-only-be-one.jpg)
 
@@ -231,11 +231,49 @@ LLEN fruits => 3
 > The suggested way of installing Redis is compiling it from sources as Redis has no dependencies other than a working GCC compiler and libc.  
 > Quick Start: http://redis.io/topics/quickstart  
 > However for people *stuck* on Windows (if you don't already have a C Compiler),
-we *recommend* using Vagrant
+we *recommend* using [***Vagrant***](https://github.com/docdis/learn-vagrant)
+to run Redis (and your app) in a (Linux) Virtual Machine (VM).
+> We have included a Vagrantfile in this repo which you can use to
+get Redis & Node.js working on ***any*** machine. simply:
+
+```sh
+git clone https://github.com/nelsonic/learn-redis.git && cd learn-redis
+vagrant up
+vagrant ssh
+```
+These three commands will
+1. Clone the repo and move into the new directory
+2. Download and install the Ubuntu VM and latest Redis and Node.js
+(and start Redis server on TCP Port 6379)
+3. SSH into the Vagrant (Ubuntu) VM so you can use the vagrant CLI
+
+
+Boot the VM by running `vagrant up`
+![learn-redis-vagrant-up](https://cloud.githubusercontent.com/assets/194400/7217523/747eeb3c-e627-11e4-8289-0b82c0fff909.png)
+After a few minutes of installing you will see that Redis is running:
+![learn-vagrant-redis-running](https://cloud.githubusercontent.com/assets/194400/7218144/febe2b56-e653-11e4-88cf-859a65ccd9f2.png)
+
+on **Port 6379** and **PID** (process ID) **5786**
+![learn-redis-vagrant-ssh-redis-running](https://cloud.githubusercontent.com/assets/194400/7217526/748d0fdc-e627-11e4-8075-56c1f5e8ca22.png)
+
+To use Redis from the **command line** log into the VM using `vagrant ssh`:
+![learn-redis-vagrant-ssh](https://cloud.githubusercontent.com/assets/194400/7217524/7486d3e2-e627-11e4-8e28-e2fa05c8d431.png)
+Then confirm that the **CLI** is working by issuing the command `redis-cli ping`:
+![learn-redis-vagrant-ssh-redis-ping](https://cloud.githubusercontent.com/assets/194400/7217525/7489c638-e627-11e4-9ca6-ca710dd54915.png)
+
+**Note**: If you are *running Linux* on your laptop/dev machine
+and prefer not to have the overhead of running Vagrant
+you can simply **copy** the **installation commands** from the Vagrantfile
+and **paste** them **into** your **terminal**.
+
+#### Ubuntu
+
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-redis
+
 
 ### Using Redis Commander to View/Set your Data
 
-For people who prefer a 
+For people who prefer a
 https://github.com/joeferner/redis-commander
 
 
