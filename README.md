@@ -129,6 +129,15 @@ redis> INCR mykey
 redis> GET mykey
 "11"
 ```
++ [***Transactions***](http://redis.io/topics/transactions) allow the execution
+of a group of commands in a single step, with ***two important guarantees***:
+1. All the commands in a transaction are serialized and executed sequentially.
+It can never happen that a request issued by another client is served in the
+middle of the execution of a Redis transaction. This guarantees that the
+**commands** are **executed as** a ***single isolated operation***.
+2. Either **all** of the commands ***or none*** are processed,
+so a Redis transaction is also
+[***atomic***](http://en.wikipedia.org/wiki/Atomicity_%28database_systems%29).
 
 + [***PubSub***](http://redis.io/commands/pubsub) lets you "listen" for changes
 in the value of a key.
@@ -140,7 +149,8 @@ values as a result.
 
 If you don't get *overwhelmed* by lots of new words and want a sneak peek  
 at the all the cool commands you can use in Redis check: http://redis.io/commands
-But we're getting ahead of ourselves, lets focus on the basics first.
+But we're getting *ahead of ourselves*, lets focus on the basics first.
+
 
 ### Use Case
 
@@ -173,6 +183,16 @@ then there's ***only one*** place to store your data.
 ***online tutorial***: http://try.redis.io/
 
 
+## Using Redis Commander to View/Set your Data
+
+https://github.com/joeferner/redis-commander
+
+
+
+#### Alternatives
+
++ Redis Desktop Manager https://github.com/uglide/RedisDesktopManager (a desktop app)
++ List of others: https://redislabs.com/blog/so-youre-looking-for-the-redis-gui
 
 ## Which Node.js Module?
 
@@ -200,6 +220,9 @@ Its faster, so what's the catch?
 > to get redis *working* and that can sometimes take *hours*! But, for the rest of us on UNIX/Linux **hiredis** is ***great***!
 
 
+## More Useful Redis Commands
+
++ TTL (time to live)
 
 
 
