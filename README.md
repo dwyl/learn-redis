@@ -17,11 +17,11 @@ Which means ***less waiting*** for the people using your app! :clap: :grinning:
 
 ## What?
 
-Redis is the *closest* you can get to direct access (to your computer's) memory.  
+Redis is the *closest* you can get to **direct access** (to your computer's) **memory**.  
 [**Written in C**](https://github.com/antirez/redis/tree/unstable/src)
-and weighing in at less than a Megabyte
+and weighing in at *less than a Megabyte*
 (*smaller is better when it comes to executable size*),
-Redis is ***built for speed***.  
+Redis is ***built for speed***.
 
 ### Key-Value (KV) Store
 
@@ -29,6 +29,7 @@ There are *many* KV Stores to chose from: http://en.wikipedia.org/wiki/NoSQL#Key
 our *favourites* are:
 + [**Riak**](http://en.wikipedia.org/wiki/Riak) - great for fault tolerance and data replication
 + [**LevelDB**](http://leveldb.org/) - Bundled with node.js so always available, but limited on heroku.
++ [**RethinkDB**](http://www.rethinkdb.com/) - Probably the coolest real-time database on the planet! :sunglasses:
 +  and *of course* [***Redis***](http://redis.io/) - *fast, free and fun*!
 
 We're here to focus on Redis because it has the *right balance* of
@@ -197,51 +198,21 @@ redis> INCR count
 redis> DECR count
 (integer) 10
 ```
-+ [**EXPIRE**](http://redis.io/commands/expire) means you can delete data after a specified amount of time.
-e.g: expire a key after 10 seconds
-```sh
-redis> SET mykey "Hello"
-OK
-redis> EXPIRE mykey 10
-(integer) 1
-redis> TTL mykey
-(integer) 10
-# wait for 10 seconfds then
-```
-+ **Lists** - A list is a series of ordered values (comparable to an Array in JS)
-  + [**RPUSH**](http://redis.io/commands/rpush)
-  + [**LPUSH**]()
-  + [**LRANGE**]()
 
-```sh
-RPUSH fruits "Apple"
-RPUSH fruits "Banana"
-LPUSH fruits "Mango"
-LRANGE fruits 0 -1 => 1) "Mango", 2) "Apple", 3) "Banana"
-LRANGE fruits 0 1 => 1) "Mango", 2) "Apple"
-LRANGE fruits 1 2 => 1) "Apple", 2) "Banana"
-LLEN fruits => 3
-```
-
-#### Also Good To Know but *Not Essential* for *this* Introductory Tutorial
-
-+ **Sets** - Redis Sets are an unordered collection of Strings.
-It is possible to add, remove, and test for existence of members in O(1)
-(*constant time* regardless of the number of elements contained inside the Set).
-SISMEMBER tests if the given value is in the set.
-It returns 1 if the value is there and 0 if it is not.
-
-+ Data Types: http://redis.io/topics/data-types
 
 (A Tutorial using Redis with Node.js)
 
 
-
 ### Installation
 
-> The suggested way of installing Redis is compiling it from sources as Redis has no dependencies other than a working GCC compiler and libc.  
-> Quick Start: http://redis.io/topics/quickstart  
-> However for people *stuck* on Windows (if you don't already have a C Compiler),
+If you don't already have Redis installed on your machine -
+*why would you if you're reading an introductory tutorial, right?* -
+there are ***two ways to install Redis***:
+
+> The guys who *make* Redis suggest *compiling* it from source (this requires a working GCC compiler and libc)
+> see: **Quick Start**: http://redis.io/topics/quickstart  
+> *However* for people *stuck* on Windows (if you don't already have a C Compiler)
+> and people who prefer to "contain" their ,
 we *recommend* using [***Vagrant***](https://github.com/docdis/learn-vagrant)
 to run Redis (and your app) in a (Linux) Virtual Machine (VM).
 > We have included a Vagrantfile in this repo which you can use to
@@ -282,28 +253,14 @@ And to **shut down** the Vagrant VM (to free up the memory on your computer), is
 ![learn-redis-vagrant-halt](https://cloud.githubusercontent.com/assets/194400/7218308/e881bcc0-e65f-11e4-8d0d-fe8559fe45f0.png)
 
 **Note**: your **VM** is ***preserved*** (still saved on your hard drive) so you can use it again for further redis-development simply by issuing the `vagrant up` command (from within a working directory that has the Vagrantfile and .vagrant)
-If you are short on disk space, you can always **delete** the VM *completely* by issuing the `vagrant destroy` command. 
+If you are short on disk space, you can always **delete** the VM *completely* by issuing the `vagrant destroy` command.
 **Note**: If you are *running Linux* on your laptop/dev machine
 and prefer not to have the overhead of running Vagrant
 you can simply **copy** the **installation commands** from the Vagrantfile
 and **paste** them **into** your **terminal**.
 
-#### Ubuntu
-
-https://www.digitalocean.com/community/tutorials/how-to-install-and-use-redis
 
 
-### Using Redis Commander to View/Set your Data
-
-For people who prefer a
-https://github.com/joeferner/redis-commander
-
-
-
-#### Alternative GUIs
-
-+ Redis Desktop Manager https://github.com/uglide/RedisDesktopManager (a desktop app)
-+ List of others: https://redislabs.com/blog/so-youre-looking-for-the-redis-gui
 
 ## Which Node.js Module?
 
@@ -331,9 +288,48 @@ Its faster, so what's the catch?
 > to get redis *working* and that can sometimes take *hours*! But, for the rest of us on UNIX/Linux **hiredis** is ***great***!
 
 
-## More Useful Redis Commands
 
-+ TTL (time to live)
+## Also Good To Know but *Not Essential* for *this* Introductory Tutorial
+
++ [**EXPIRE**](http://redis.io/commands/expire) means you can delete data after a specified amount of time.
+e.g: expire a key after 10 seconds
+```sh
+redis> SET mykey "Hello"
+OK
+redis> EXPIRE mykey 10
+(integer) 1
+redis> TTL mykey
+(integer) 10
+# wait for 10 seconds then
+redis> TTL mykey
+(integer) -2
+```
++ TTL (time to live) lets you check how long it will be before a key
+(and its associated value) will expire from the cache. (see *expire* example above)
+
+
++ **Lists** - A list is a series of ordered values (comparable to an Array in JS)
+  + [**RPUSH**](http://redis.io/commands/rpush)
+  + [**LPUSH**]()
+  + [**LRANGE**]()
+
+```sh
+RPUSH fruits "Apple"
+RPUSH fruits "Banana"
+LPUSH fruits "Mango"
+LRANGE fruits 0 -1 => 1) "Mango", 2) "Apple", 3) "Banana"
+LRANGE fruits 0 1 => 1) "Mango", 2) "Apple"
+LRANGE fruits 1 2 => 1) "Apple", 2) "Banana"
+LLEN fruits => 3
+```
+
++ **Sets** - Redis Sets are an unordered collection of Strings.
+It is possible to add, remove, and test for existence of members in O(1)
+(*constant time* regardless of the number of elements contained inside the Set).
+SISMEMBER tests if the given value is in the set.
+It returns 1 if the value is there and 0 if it is not.
+
++ Data Types: http://redis.io/topics/data-types
 
 
 
@@ -359,6 +355,8 @@ http://stackoverflow.com/questions/21416529/how-to-pipeline-in-node-js-to-redis
 https://redis-docs.readthedocs.org/en/latest/Features.html
 + 11 Common Web Use Cases Solved In Redis:  
 http://highscalability.com/blog/2011/7/6/11-common-web-use-cases-solved-in-redis.html
++ How to Install and use Redis on Ubuntu
+https://www.digitalocean.com/community/tutorials/how-to-install-and-use-redis
 
 ### Tips and Tricks
 
@@ -371,3 +369,16 @@ http://highscalability.com/blog/2011/7/6/11-common-web-use-cases-solved-in-redis
 http://instagram-engineering.tumblr.com/post/12202313862/storing-hundreds-of-millions-of-simple-key-value
 + Redis Labs Achieves Over ***1.2 Million Transactions per Second*** on a **Single** Amazon Web Services (AWS) **Instance**:  
 http://www.marketwired.com/press-release/redis-labs-achieves-over-12-million-transactions-per-second-on-single-amazon-web-services-1965269.htm
+
+
+## Graphical User Interface (GUI) for Viewing/Setting Data
+
+### Redis Commander to View/Set your Data
+
+For people who prefer a node module
+https://github.com/joeferner/redis-commander
+
+### Alternative GUIs
+
++ Redis Desktop Manager https://github.com/uglide/RedisDesktopManager (an installed desktop app)
++ List of others: https://redislabs.com/blog/so-youre-looking-for-the-redis-gui
