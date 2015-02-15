@@ -42,7 +42,7 @@ useful to be able to *subscribe* to this list and be notified when it changes?
 #### Make Sure you *Understand*
 
 You can learn/pcactice all these commands [*online*](http://try.redis.io)
-***before*** installing redis:
+***before*** installing Redis:
 
 + [**SET**](http://redis.io/commands/set) - SET a the value for a given key.
 + [**GET**](http://redis.io/commands/get) - GET the value of a key.
@@ -58,9 +58,7 @@ redis> DECR count
 (integer) 10
 ```
 
-*Easy*, ***Right***?
-
-(A Tutorial using Redis with Node.js)
+*Easy*, ***Right***? lets *keep moving*.
 
 
 ### Installation
