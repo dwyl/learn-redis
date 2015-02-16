@@ -6,6 +6,11 @@ Need to store/access your data as ***fast*** as possible? Try Redis!
 
 ## [Why?](https://youtu.be/zeXv4bav54M?t=9s)
 
+> "*40% of people will leave your site if it takes longer than 3 seconds to load...*"  
+https://econsultancy.com/blog/10936-site-speed-case-studies-tips-and-tools-for-improving-your-conversion-rate  
+> ***Never make people wait***; *Learn how to* ***cache your content/app with Redis***.
+
+
 **Storing data** is a ***necessity*** for *all* (but the *simplest*) web applications. &nbsp;
 :computer: :iphone: :watch: :camera: :video_camera: &nbsp; > &nbsp;
 :floppy_disk: & :open_file_folder: &nbsp; > &nbsp; :smile:  
@@ -284,6 +289,13 @@ http://instagram-engineering.tumblr.com/post/12202313862/storing-hundreds-of-mil
 + Redis Labs Achieves Over ***1.2 Million Transactions per Second*** on a **Single** Amazon Web Services (AWS) **Instance**:  
 http://www.marketwired.com/press-release/redis-labs-achieves-over-12-million-transactions-per-second-on-single-amazon-web-services-1965269.htm
 
+### Persistence
+
+Because Redis is an in-memory datastore, persistence is not immediate.
+if you want to be sure that your data is saved,
+(incase your server/instance is re-booted) read about using the ***SAVE*** command.
+
++ Redis **persistence** ***demystified***: http://oldblog.antirez.com/post/redis-persistence-demystified.html
 
 
 ## Graphical User Interface (GUI) for Viewing/Setting Data
@@ -378,7 +390,6 @@ output:
 ![bicycle-definition](https://cloud.githubusercontent.com/assets/194400/7215446/4bbc5fd8-e5d0-11e4-80ca-a52d9265186f.png)
 
 
-
 ### Q: Can't I Just Use MongoDB for Everything?
 
 > "We are *already using MongoDB* to store our records, can't we just put ***everything in one place***?"
@@ -392,3 +403,11 @@ But if you need to save/access ***Millions of Records Per Second*** (*yes, you r
 then there's ***only one*** place to store your data; ***Redis***.
 
 ![there can be only one](https://izeeshan.files.wordpress.com/2014/08/there-can-only-be-one.jpg)
+
+
+### Q: Can we use Redis as *Primary* Datastore?
+
+*Quick answer*: ***Yes***!  
+*Long answer*:
+
++ **Persistence**: http://redis.io/topics/persistence +

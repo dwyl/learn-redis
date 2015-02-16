@@ -13,9 +13,3 @@ client.get("Hello", function(err, reply) {
    // reply is null when the key is missing
    console.log('Hello ' + reply);
 });
-
-
-/**
- * BASIC Example using hiredis - https://github.com/redis/hiredis-node
- * if you want the "Official" (but less popular) module
- */
