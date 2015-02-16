@@ -297,6 +297,10 @@ if you want to be sure that your data is saved,
 
 + Redis **persistence** ***demystified***: http://oldblog.antirez.com/post/redis-persistence-demystified.html
 
+### Redis in Practice
+
++ Travis-CI gives you access to Redis: http://docs.travis-ci.com/user/database-setup/#Redis
+
 
 ## Graphical User Interface (GUI) for Viewing/Setting Data
 
