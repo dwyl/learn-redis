@@ -74,9 +74,10 @@ there are ***two ways to install Redis***:
 
 > The guys who *make* Redis suggest *compiling* it from source (this requires a working GCC compiler and libc)
 > see: **Quick Start**: http://redis.io/topics/quickstart  
-> *However* for people *stuck* on Windows (if you don't already have a C Compiler)
+> If you are running Linux/Mac or prefer not to use Vagrant, try the download & compile described in the quickstart.  
+> For people *stuck* on Windows (if you don't already have a C Compiler)
 > and people who prefer to "contain" their ,
-we *recommend* using [***Vagrant***](https://github.com/docdis/learn-vagrant)
+***we recommend*** using [***Vagrant***](https://github.com/docdis/learn-vagrant)
 to run Redis (and your app) in a (Linux) Virtual Machine (VM).
 > We have included a Vagrantfile in this repo which you can use to
 get Redis & Node.js working on ***any*** machine. simply:
@@ -95,7 +96,8 @@ These three commands will
 
 To boot the VM with Redis open a new terminal window/tab (in the learn-redis directory) and issue the command: `vagrant up`
 ![learn-redis-vagrant-up](https://cloud.githubusercontent.com/assets/194400/7217523/747eeb3c-e627-11e4-8289-0b82c0fff909.png)
-After a few minutes of installing you will see that Redis is running:
+
+After a few minutes of downloading & installing you will see that Redis is running:
 ![learn-vagrant-redis-running](https://cloud.githubusercontent.com/assets/194400/7218144/febe2b56-e653-11e4-88cf-859a65ccd9f2.png)
 
 on **Port 6379** and **PID** (process ID) **5786**
@@ -112,7 +114,8 @@ To **exit** the VM you just logged into, simply type `exit` in the terminal and 
 To **close** the Redis **server** runing on the VM, press the [ctrl] + [C] keys on your keyboard (*twice*).
 ![learn-redis-exit-redis](https://cloud.githubusercontent.com/assets/194400/7218303/8e4f314c-e65f-11e4-8961-8dbfe4442883.png)
 
-And to **shut down** the Vagrant VM (to free up the memory on your computer), issue the `vagrant halt` command in your terminal:
+And to **shut down** the Vagrant VM (to free up the memory on your computer),  
+issue the `vagrant halt` command in your terminal:  
 ![learn-redis-vagrant-halt](https://cloud.githubusercontent.com/assets/194400/7218308/e881bcc0-e65f-11e4-8d0d-fe8559fe45f0.png)
 
 **Note**: your **VM** is ***preserved*** (still saved on your hard drive) so you can use it again for further redis-development simply by issuing the `vagrant up` command (from within a working directory that has the Vagrantfile and .vagrant)
@@ -123,11 +126,7 @@ you can simply **copy** the **installation commands** from the Vagrantfile
 and **paste** them **into** your **terminal**.
 
 
-
-
-
-
-## Which Node.js Module?
+### Which Node.js Module?
 
 A search for "redis" on **NPM**: https://www.npmjs.com/search?q=redis returns *many* results!
 
@@ -136,10 +135,12 @@ A search for "redis" on **NPM**: https://www.npmjs.com/search?q=redis returns *m
 
 Don't be overwhelmed by the *quantity* of modules, focus on *quality*.
 
-### The 2 Modules we *Use* and *Recommend*
+#### The 2 Modules we *Use* and *Recommend*
 
 + **redis** https://www.npmjs.com/package/redis written in "*Pure JavaScript*"
-this is *by far* the ***most popular*** node module for redis.
+this is *by far* the ***most popular*** node module for Redis,
+*and*... if you install it with: `npm install redis hiredis` then it will *use*
+the C binding for speed.
 + **hiredis-node** https://github.com/redis/hiredis-node is a JS wrapper
 around the [hiredis](https://github.com/redis/hiredis) **C Library**.  
 This means its ***much faster*** than "*Pure JavaScript*" code.
@@ -150,13 +151,46 @@ Its faster, so what's the catch?
 > (*stop hitting yourself!*)
 > will need to install a
 > [*compiler*](http://stackoverflow.com/questions/5691795/how-to-compile-c-programming-in-windows-7)  
-> to get redis *working* and that can sometimes take *hours*! But, for the rest of us on UNIX/Linux **hiredis** is ***great***!
+> to get Redis *working* and that can sometimes take *hours*!
+
+Our ***recommendation*** is to **use** the **redis** module
+because the documentation is better, but install **hiredis**
+so that it uses the C binding.
+
+```sh
+npm install redis hiredis --save
+```
+
+### Basic Example
+
+See: **examples/basic.js**
+
+Paste hand-type (or copy-paste) this code into a file called **basic.js**
+
+```js
+var redis  = require("redis");
+var client = redis.createClient();
+
+client.set("Hello", "World", redis.print);
+
+client.get("Hello", function(err, reply) {
+   // reply is null when the key is missing
+   console.log('Hello ' + reply);
+});
+```
+
+Run the script in your terminal by issuing the command: `node basic.js`
+You should expect to see:
+```sh
+$ node basic.js
+Reply: OK
+Hello World
+```
 
 
 
 
-
-## Also Good To Know but *Not Essential* for *this* Introductory Tutorial
+### Also Good To Know but *Not Essential* for *this* Introductory Tutorial
 
 
 Redis has *many* fantastic *features* not limited to just SET/GET/DELETE
@@ -250,6 +284,7 @@ e.g: you have two devices (Desktop & Mobile) logged into an app,
 something gets updated on one of them, how do we reflect this change on the other?
 Answer: all devices "*subscribe*" to the change event and receive the latest
 values as a result.
+
 
 
 ## Background Reading
@@ -411,7 +446,5 @@ then there's ***only one*** place to store your data; ***Redis***.
 
 ### Q: Can we use Redis as *Primary* Datastore?
 
-*Quick answer*: ***Yes***!  
-*Long answer*:
-
-+ **Persistence**: http://redis.io/topics/persistence +
+***Yes***! Do it! *Discover* the power of data structures and the
+speed of an in-memory datastore!
