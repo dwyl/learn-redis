@@ -1,6 +1,6 @@
 # Learn Redis
-[![Build Status](https://travis-ci.org/nelsonic/learn-redis.svg)](https://travis-ci.org/nelsonic/learn-redis)
-[![Code Climate](https://codeclimate.com/github/nelsonic/learn-redis/badges/gpa.svg)](https://codeclimate.com/github/nelsonic/learn-redis)
+[![Build Status](https://travis-ci.org/docdis/learn-redis.svg?branch=master)](https://travis-ci.org/docdis/learn-redis)
+[![Code Climate](https://codeclimate.com/github/docdis/learn-redis/badges/gpa.svg)](https://codeclimate.com/github/docdis/learn-redis)
 [![Node version](https://img.shields.io/node/v/esta.svg?style=flat)](http://nodejs.org/download/)
 
 Need to store/access your data as ***fast*** as possible? Try Redis!
