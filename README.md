@@ -1,7 +1,4 @@
 # Learn Redis
-[![Build Status](https://travis-ci.org/nelsonic/learn-redis.svg)](https://travis-ci.org/nelsonic/learn-redis)
-[![Code Climate](https://codeclimate.com/github/nelsonic/learn-redis/badges/gpa.svg)](https://codeclimate.com/github/nelsonic/learn-redis)
-[![Node version](https://img.shields.io/node/v/esta.svg?style=flat)](http://nodejs.org/download/)
 
 Need to store/access your data as ***fast*** as possible? Try Redis!
 
@@ -18,7 +15,7 @@ https://econsultancy.com/blog/10936-site-speed-case-studies-tips-and-tools-for-i
 *Often* ***accessing*** that data *can be* the ***biggest bottleneck***
 in an app causing it to be ***slow and painful experience***.  
 **Redis** is ***designed*** to be the ***fastest*** way to store and retrieve data.  
-Which means ***less waiting*** for the people using your app!  
+Which means ***less waiting*** for the people using your app!
 
 
 ## What?
@@ -47,7 +44,7 @@ useful to be able to *subscribe* to this list and be notified when it changes?
 
 #### Make Sure you *Understand*
 
-You can learn/pcactice all these commands [*online*](http://try.redis.io)
+You can learn/practice all these commands [*online*](http://try.redis.io)
 ***before*** installing Redis:
 
 + [**SET**](http://redis.io/commands/set) - SET a the value for a given key.
