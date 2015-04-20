@@ -22,7 +22,7 @@ Which means ***less waiting*** for the people using your app!
 
 Redis is the *closest* you can get to **direct access** (to your computer's) **memory**.  
 [**Written in C**](https://github.com/antirez/redis/tree/unstable/src)
-and weighing in at *less than a Megabyte*
+the entire server is *less than a Megabyte*
 (*smaller is better when it comes to executable size*),
 Redis is ***built for speed***.
 
@@ -33,7 +33,8 @@ Redis is ***built for speed***.
 + ***list online people*** in a chat application the list of people/devices
 that are connected changes frequently (as people join/leave). Wouldn't it be
 useful to be able to *subscribe* to this list and be notified when it changes?
-
++ ***content cache*** given that Redis can store any size of string,
+it can
 
 ## How?
 
@@ -92,24 +93,25 @@ These three commands will
 3. SSH into the Vagrant (Ubuntu) VM so you can use the vagrant CLI
 
 
-To boot the VM with Redis open a new terminal window/tab (in the learn-redis directory) and issue the command: `vagrant up`
+To boot the VM with Redis open a new terminal window/tab (in the learn-redis directory) and issue the command: `vagrant up`  
 ![learn-redis-vagrant-up](https://cloud.githubusercontent.com/assets/194400/7217523/747eeb3c-e627-11e4-8289-0b82c0fff909.png)
 
-After a few minutes of downloading & installing you will see that Redis is running:
+After a few minutes of downloading & installing you will see that Redis is running:  
 ![learn-vagrant-redis-running](https://cloud.githubusercontent.com/assets/194400/7218144/febe2b56-e653-11e4-88cf-859a65ccd9f2.png)
 
-on **Port 6379** and **PID** (process ID) **5786**
+on **Port 6379** and **PID** (process ID) **5786**  
 ![learn-redis-vagrant-ssh-redis-running](https://cloud.githubusercontent.com/assets/194400/7217526/748d0fdc-e627-11e4-8075-56c1f5e8ca22.png)
 
-To use Redis from the **command line** (open a new terminal window/tab and) log into the VM using `vagrant ssh`:
+To use Redis from the **command line** (open a new terminal window/tab and) log into the VM using `vagrant ssh`:  
 ![learn-redis-vagrant-ssh](https://cloud.githubusercontent.com/assets/194400/7217524/7486d3e2-e627-11e4-8e28-e2fa05c8d431.png)
-Then confirm that the **CLI** is working by issuing the command `redis-cli ping`:
+
+Then confirm that the **CLI** is working by issuing the command `redis-cli ping`:  http://stackoverflow.com/questions/10137857/is-redis-just-a-cache
 ![learn-redis-vagrant-ssh-redis-ping](https://cloud.githubusercontent.com/assets/194400/7217525/7489c638-e627-11e4-9ca6-ca710dd54915.png)
 
-To **exit** the VM you just logged into, simply type `exit` in the terminal and hit the [return] key.
+To **exit** the VM you just logged into, simply type `exit` in the terminal and hit the [return] key.  
 ![learn-redis-exit-vagrant-vm](https://cloud.githubusercontent.com/assets/194400/7218297/3bd595b4-e65f-11e4-8b3a-108a8243d486.png)
 
-To **close** the Redis **server** runing on the VM, press the [ctrl] + [C] keys on your keyboard (*twice*).
+To **close** the Redis **server** runing on the VM, press the [ctrl] + [C] keys on your keyboard (*twice*).  
 ![learn-redis-exit-redis](https://cloud.githubusercontent.com/assets/194400/7218303/8e4f314c-e65f-11e4-8961-8dbfe4442883.png)
 
 And to **shut down** the Vagrant VM (to free up the memory on your computer),  
@@ -298,6 +300,7 @@ http://www.infoworld.com/article/2825890/application-development/why-redis-beats
 http://www.robupcraft.com/why-redis-is-awesome
 + Memcached vs. Redis? (good list feature/comparison)
 http://stackoverflow.com/questions/10558465/memcached-vs-redis
++ Is Redis "just" a cache? http://stackoverflow.com/questions/10137857/is-redis-just-a-cache
 + What are the differences between MongoDB and Redis? (v. basic)
 http://stackoverflow.com/questions/6445899/what-are-the-differences-between-mongodb-and-redis
 + How to Pipeline in node.js to Redis:
@@ -312,7 +315,10 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-use-redis
 #### Tips and Tricks
 
 + Redis Tips (Mozilla): https://developer.mozilla.org/en-US/docs/Mozilla/Redis_Tips
-+ Travis-CI gives you access to Redis: http://docs.travis-ci.com/user/database-setup/#Redis
++ Using Redis as an LRU cache: http://redis.io/topics/lru-cache
++ Travis-CI gives you access to Redis:
+http://docs.travis-ci.com/user/database-setup/#Redis
+(see: **.travis.yml** *this* repo for an example)
 
 #### Performance & Benchmarks
 
