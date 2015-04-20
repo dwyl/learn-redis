@@ -1,4 +1,7 @@
 # Learn Redis
+[![Build Status](https://travis-ci.org/nelsonic/learn-redis.svg)](https://travis-ci.org/nelsonic/learn-redis)
+[![Code Climate](https://codeclimate.com/github/nelsonic/learn-redis/badges/gpa.svg)](https://codeclimate.com/github/nelsonic/learn-redis)
+[![Node version](https://img.shields.io/node/v/esta.svg?style=flat)](http://nodejs.org/download/)
 
 Need to store/access your data as ***fast*** as possible? Try Redis!
 
@@ -311,6 +314,17 @@ https://redis-docs.readthedocs.org/en/latest/Features.html
 http://highscalability.com/blog/2011/7/6/11-common-web-use-cases-solved-in-redis.html
 + How to Install and use Redis on Ubuntu
 https://www.digitalocean.com/community/tutorials/how-to-install-and-use-redis
+
+#### Which Redis-as-a-Service (Heroku Addon)?
+
+There are a few options for hosted Redis on Heroku: https://addons.heroku.com/?q=redis
+
++ https://addons.heroku.com/rediscloud ***free*** plan is **25mb**
++ https://addons.heroku.com/redistogo *free* plan is **5mb** (paid plans are quite expensive per MB, but they have great service - hence being the #1 provider...)
++ https://addons.heroku.com/redisgreen *no free* plan. #fail (also quite expensive per MB and no distinguishing features)
++ https://addons.heroku.com/openredis *no free* plan. #fail (commitment to use the latest version of redis is good. notifications when reaching 90% of memory.
+
+> ***Conclusion***: **rediscloud**!
 
 #### Tips and Tricks
 
