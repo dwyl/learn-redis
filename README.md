@@ -14,13 +14,11 @@ https://econsultancy.com/blog/10936-site-speed-case-studies-tips-and-tools-for-i
 > ***Never make people wait***; *Learn how to* ***cache your content/app with Redis***.
 
 
-**Storing data** is a ***necessity*** for *all* (but the *simplest*) web applications. &nbsp;
-:computer: :iphone: :watch: :camera: :video_camera: &nbsp; > &nbsp;
-:floppy_disk: & :open_file_folder: &nbsp; > &nbsp; :smile:  
+**Storing data** is a ***necessity*** for *all* (but the *simplest*) web applications.  
 *Often* ***accessing*** that data *can be* the ***biggest bottleneck***
-in an app causing it to be ***slow and painful experience***. :hourglass: :zzz: :cry:  
-**Redis** is ***designed*** to be the ***fastest*** way to store and retrieve data. :rocket:  
-Which means ***less waiting*** for the people using your app! :clap: :grinning:
+in an app causing it to be ***slow and painful experience***.  
+**Redis** is ***designed*** to be the ***fastest*** way to store and retrieve data.  
+Which means ***less waiting*** for the people using your app!  
 
 
 ## What?
