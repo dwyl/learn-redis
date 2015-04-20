@@ -1,4 +1,7 @@
 # Learn Redis
+[![Build Status](https://travis-ci.org/nelsonic/learn-redis.svg)](https://travis-ci.org/nelsonic/learn-redis)
+[![Code Climate](https://codeclimate.com/github/nelsonic/learn-redis/badges/gpa.svg)](https://codeclimate.com/github/nelsonic/learn-redis)
+[![Node version](https://img.shields.io/node/v/esta.svg?style=flat)](http://nodejs.org/download/)
 
 Need to store/access your data as ***fast*** as possible? Try Redis!
 
@@ -286,10 +289,9 @@ Answer: all devices "*subscribe*" to the change event and receive the latest
 values as a result.
 
 
-
 ## Background Reading
 
-### General
+#### General
 
 + ***What is Redis*** and what do I **use it for**? (good list of **usecases**)  
 http://stackoverflow.com/questions/7888880/what-is-redis-and-what-do-i-use-it-for
@@ -312,11 +314,12 @@ http://highscalability.com/blog/2011/7/6/11-common-web-use-cases-solved-in-redis
 + How to Install and use Redis on Ubuntu
 https://www.digitalocean.com/community/tutorials/how-to-install-and-use-redis
 
-### Tips and Tricks
+#### Tips and Tricks
 
 + Redis Tips (Mozilla): https://developer.mozilla.org/en-US/docs/Mozilla/Redis_Tips
++ Travis-CI gives you access to Redis: http://docs.travis-ci.com/user/database-setup/#Redis
 
-### Performance & Benchmarks
+#### Performance & Benchmarks
 
 + How fast is Redis? http://redis.io/topics/benchmarks
 + Storing ***hundreds of millions*** of simple key-value pairs in Redis **INSTAGRAM ENGINEERING** Blog:  
@@ -324,7 +327,7 @@ http://instagram-engineering.tumblr.com/post/12202313862/storing-hundreds-of-mil
 + Redis Labs Achieves Over ***1.2 Million Transactions per Second*** on a **Single** Amazon Web Services (AWS) **Instance**:  
 http://www.marketwired.com/press-release/redis-labs-achieves-over-12-million-transactions-per-second-on-single-amazon-web-services-1965269.htm
 
-### Persistence
+#### Persistence
 
 Because Redis is an in-memory datastore, persistence is not immediate.
 if you want to be sure that your data is saved,
@@ -332,24 +335,19 @@ if you want to be sure that your data is saved,
 
 + Redis **persistence** ***demystified***: http://oldblog.antirez.com/post/redis-persistence-demystified.html
 
-### Redis in Practice
 
-+ Travis-CI gives you access to Redis: http://docs.travis-ci.com/user/database-setup/#Redis
+#### Graphical User Interface (GUI) for Viewing/Setting Data
 
++ Redis Commander https://github.com/joeferner/redis-commander is
+a node module (express app) you can install and run,
+then open a web browser to View/Set your Data
 
-## Graphical User Interface (GUI) for Viewing/Setting Data
-
-### Redis Commander to View/Set your Data
-
-For people who prefer a node module
-https://github.com/joeferner/redis-commander
-
-### Alternative GUIs
+##### Alternative GUIs
 
 + Redis Desktop Manager https://github.com/uglide/RedisDesktopManager (an installed desktop app)
 + List of others: https://redislabs.com/blog/so-youre-looking-for-the-redis-gui
 
-### Key-Value (KV) Store
+#### Key-Value (KV) Store
 
 There are *many* KV Stores to chose from: http://en.wikipedia.org/wiki/NoSQL#Key-value_stores
 our *favourites* are:
