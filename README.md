@@ -37,7 +37,7 @@ Redis is ***built for speed***.
 that are connected changes frequently (as people join/leave). Wouldn't it be
 useful to be able to *subscribe* to this list and be notified when it changes?
 + ***content cache*** given that Redis can store any size of string,
-it can
+it can store any *content* you need to serve in your app; from simple components to entire pages.
 
 ## How?
 
