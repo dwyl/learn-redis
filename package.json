@@ -23,18 +23,18 @@
   },
   "homepage": "https://github.com/nelsonic/learn-redis",
   "dependencies": {
-    "hiredis": "^0.3.0",
+    "hiredis": "^0.4.0",
     "redis": "^0.12.1"
   },
   "devDependencies": {
-    "codeclimate-test-reporter": "0.0.4",
-    "istanbul": "^0.3.13",
-    "tap-spec": "^3.0.0",
+    "codeclimate-test-reporter": "0.1.0",
+    "istanbul": "^0.3.17",
+    "tap-spec": "^4.0.2",
     "tape": "^4.0.0"
   },
   "scripts": {
     "view-cov": "open .",
-    "codeclimate": "CODECLIMATE_REPO_TOKEN=0839d00dd01047ffadfb3c56bf9c9baa0047179de582a47517e3f558ad4eafff ./node_modules/codeclimate-test-reporter/bin/codeclimate.js < ./coverage/lcov.info",
+    "codeclimate": "CODECLIMATE_REPO_TOKEN=c9033dfa3211fa82e57329c650a780c82b449e8f02a93b70561e2692a2a699e3 ./node_modules/codeclimate-test-reporter/bin/codeclimate.js < ./coverage/lcov.info",
     "coverage": "./node_modules/.bin/istanbul cover ./node_modules/tape/bin/tape ./test/*.js | node_modules/tap-spec/bin/cmd.js && ./node_modules/.bin/istanbul check-coverage --statements 100 --functions 100 --lines 100 --branches 100",
     "test": "istanbul cover ./node_modules/tape/bin/tape ./test/*.js | node_modules/tap-spec/bin/cmd.js",
     "spec": "node ./node_modules/tape/bin/tape ./test/*.js | node_modules/tap-spec/bin/cmd.js"
