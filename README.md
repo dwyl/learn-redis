@@ -1,6 +1,6 @@
 # Learn Redis
 [![Build Status](https://travis-ci.org/dwyl/learn-redis.svg?branch=master)](https://travis-ci.org/dwyl/learn-redis)
-[![Code Climate](https://codeclimate.com/github/dylw/learn-redis/badges/gpa.svg)](https://codeclimate.com/github/dwyl/learn-redis)
+[![Code Climate](https://codeclimate.com/github/dwyl/learn-redis/badges/gpa.svg)](https://codeclimate.com/github/dwyl/learn-redis)
 [![Node version](https://img.shields.io/node/v/esta.svg?style=flat)](http://nodejs.org/download/)
 [![Dependency Status](https://david-dm.org/dwyl/learn-redis.svg)](https://david-dm.org/dwyl/learn-redis)
 
