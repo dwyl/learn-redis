@@ -320,7 +320,7 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-use-redis
 
 There are a few options for hosted Redis on Heroku: https://addons.heroku.com/?q=redis
 
-+ https://addons.heroku.com/rediscloud ***free*** plan is **25mb**
++ https://addons.heroku.com/rediscloud ***free*** plan is **30mb**
 + https://addons.heroku.com/redistogo *free* plan is **5mb** (paid plans are quite expensive per MB, but they have great service - hence being the #1 provider...)
 + https://addons.heroku.com/redisgreen *no free* plan. #fail (also quite expensive per MB and no distinguishing features)
 + https://addons.heroku.com/openredis *no free* plan. #fail (commitment to use the latest version of redis is good. notifications when reaching 90% of memory.
