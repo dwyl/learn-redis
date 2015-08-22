@@ -289,6 +289,10 @@ something gets updated on one of them, how do we reflect this change on the othe
 Answer: all devices "*subscribe*" to the change event and receive the latest
 values as a result.
 
+## Advanced (*Real*) Example
+
+> For a more complete example see our Chat App:
+https://github.com/dwyl/hapi-socketio-redis-chat-example
 
 ## Background Reading
 
@@ -326,6 +330,30 @@ There are a few options for hosted Redis on Heroku: https://addons.heroku.com/?q
 + https://addons.heroku.com/openredis *no free* plan. #fail (commitment to use the latest version of redis is good. notifications when reaching 90% of memory.
 
 > ***Conclusion***: **rediscloud**!
+
+#### Get your RedisCloud Instance
+
+The easiest way to get your RedisCloud instance is to create a Heroku app
+and add the RedisCloud Addon to it.
+
+In your heroku app, click on `Resources`, type `redis` into the search box:
+![learn-redis-01-find-addon](https://cloud.githubusercontent.com/assets/194400/9439757/c51197a4-4a61-11e5-82f6-c84e84a55437.png)
+
+Select RedisCloud Free plan and add to your heroku app:
+![learn-redis-02-select-rediscloud](https://cloud.githubusercontent.com/assets/194400/9439767/d53c1b5e-4a61-11e5-8874-3c6418700166.png)
+
+Confirm its been enabled
+![learn-redis-03-enabled](https://cloud.githubusercontent.com/assets/194400/9439776/e58c1248-4a61-11e5-817b-7d865a2cf7ef.png)
+
+Go to `Settings` and Click to view the `Config Vars` then grab the `REDISCLOUD_URL` Config Variable so you can use it:
+![learn-redis-04-config-vars](https://cloud.githubusercontent.com/assets/194400/9439779/ed4d12e8-4a61-11e5-9d05-ff4ad322bb0e.png)
+
+Now you can export it and use it in your node.js app:
+```sh
+export REDISCLOUD_URL=redis://rediscloud:yourpassword@pub-redis-12345.eu-west-1-2.1.ec2.garantiadata.com:12345
+```
+Which you can then access in your node.js app using `process.env.REDISCLOUD_URL`
+
 
 #### Tips and Tricks
 
