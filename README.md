@@ -73,12 +73,22 @@ redis> DECR count
 
 If you don't already have Redis installed on your machine -
 *why would you if you're reading an introductory tutorial, right?* -
-there are ***two ways to install Redis***:
+there are ~~two~~ ***three ways to install Redis***:
 
 > The guys who *make* Redis suggest *compiling* it from source (this requires a working GCC compiler and libc)
 > see: **Quick Start**: http://redis.io/topics/quickstart  
 > If you are running Linux/Mac or prefer not to use Vagrant, try the download & compile described in the quickstart.  
-> For people *stuck* on Windows (if you don't already have a C Compiler)
+
+#### installing using (home)brew (*Mac Only*)
+
+Once you have [homebrew](http://brew.sh/) installed, simply run this command in your terminal:
+```sh
+brew install redis
+```
+![brew-install-redis](https://cloud.githubusercontent.com/assets/194400/8672886/38cf0e2c-2a2a-11e5-9869-bf6d876dc8b1.png)
+
+
+> For people *stuck* on Windows (if you don't already have a **C Compiler**)
 > and people who prefer to "contain" their ,
 ***we recommend*** using [***Vagrant***](https://github.com/docdis/learn-vagrant)
 to run Redis (and your app) in a (Linux) Virtual Machine (VM).
@@ -128,6 +138,8 @@ If you are short on disk space, you can always **delete** the VM *completely* by
 and prefer not to have the overhead of running Vagrant
 you can simply **copy** the **installation commands** from the Vagrantfile
 and **paste** them **into** your **terminal**.
+
+<br />
 
 
 ### Which Node.js Module?
