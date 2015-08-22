@@ -518,3 +518,9 @@ speed of an in-memory datastore!
 ### Q: How should we store JSON?
 
 Redis **strings _vs_** Redis **hashes** to represent **JSON**: efficiency? http://stackoverflow.com/questions/16375188/redis-strings-vs-redis-hashes-to-represent-json-efficiency
+
+# Last But *Not Least*
+
+Highly recommend reading ***Redis In Action*** to anyone wanting to use Redis _professionally_.
+see: http://www.amazon.com/Redis-Action-Josiah-L-Carlson/dp/1617290858
+For *educational purposes* see: http://www.it-ebooks.info/book/2447/
