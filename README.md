@@ -320,6 +320,17 @@ http://highscalability.com/blog/2011/7/6/11-common-web-use-cases-solved-in-redis
 + How to Install and use Redis on Ubuntu
 https://www.digitalocean.com/community/tutorials/how-to-install-and-use-redis
 
+### Publish Subscribe
+
+Probably the most useful feature of Redis for building real-time apps is
+publish/subscribe. Thankfully, Thoughtbot have written a good post
+explaining it: https://robots.thoughtbot.com/redis-pub-sub-how-does-it-work
+
+Their article uses Ruby (_they are **still** a rails shop..._)
+but our **Practical** tutorial uses node.js, so after you have read the
+intro, checkout: https://github.com/dwyl/hapi-socketio-redis-chat-example
+
+
 #### Which Redis-as-a-Service (Heroku Addon)?
 
 There are a few options for hosted Redis on Heroku: https://addons.heroku.com/?q=redis
