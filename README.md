@@ -513,3 +513,8 @@ then there's ***only one*** place to store your data; ***Redis***.
 
 ***Yes***! Do it! *Discover* the power of data structures and the
 speed of an in-memory datastore!
+
+
+### Q: How should we store JSON?
+
+Redis **strings _vs_** Redis **hashes** to represent **JSON**: efficiency? http://stackoverflow.com/questions/16375188/redis-strings-vs-redis-hashes-to-represent-json-efficiency
