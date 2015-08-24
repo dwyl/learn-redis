@@ -1,11 +1,15 @@
 # detailed instructions for installing
 $script = <<SCRIPT
+# if you have a better way than using sudo to install things, tell me!!
+sudo -i
+
 # update ubuntu (security etc.)
 apt-get update
-# nodejs
-sudo apt-get -y install build-essential tcl8.5 g++ git git-core nodejs npm
-# use https://github.com/visionmedia/n to get latest node+npm
 
+# install nodejs + redis from apt
+apt-get -y install build-essential tcl8.5 g++ git git-core nodejs npm redis-server redis-tools
+
+# use https://github.com/visionmedia/n to get latest node+npm
 sudo npm install n -g
 sudo n stable
 node -v

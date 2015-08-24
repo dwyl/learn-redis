@@ -73,12 +73,22 @@ redis> DECR count
 
 If you don't already have Redis installed on your machine -
 *why would you if you're reading an introductory tutorial, right?* -
-there are ***two ways to install Redis***:
+there are ~~two~~ ***three ways to install Redis***:
 
 > The guys who *make* Redis suggest *compiling* it from source (this requires a working GCC compiler and libc)
 > see: **Quick Start**: http://redis.io/topics/quickstart  
 > If you are running Linux/Mac or prefer not to use Vagrant, try the download & compile described in the quickstart.  
-> For people *stuck* on Windows (if you don't already have a C Compiler)
+
+#### installing using (home)brew (*Mac Only*)
+
+Once you have [homebrew](http://brew.sh/) installed, simply run this command in your terminal:
+```sh
+brew install redis
+```
+![brew-install-redis](https://cloud.githubusercontent.com/assets/194400/8672886/38cf0e2c-2a2a-11e5-9869-bf6d876dc8b1.png)
+
+
+> For people *stuck* on Windows (if you don't already have a **C Compiler**)
 > and people who prefer to "contain" their ,
 ***we recommend*** using [***Vagrant***](https://github.com/docdis/learn-vagrant)
 to run Redis (and your app) in a (Linux) Virtual Machine (VM).
@@ -128,6 +138,8 @@ If you are short on disk space, you can always **delete** the VM *completely* by
 and prefer not to have the overhead of running Vagrant
 you can simply **copy** the **installation commands** from the Vagrantfile
 and **paste** them **into** your **terminal**.
+
+<br />
 
 
 ### Which Node.js Module?
@@ -289,6 +301,10 @@ something gets updated on one of them, how do we reflect this change on the othe
 Answer: all devices "*subscribe*" to the change event and receive the latest
 values as a result.
 
+## Advanced (*Real*) Example
+
+> For a more complete example see our Chat App:
+https://github.com/dwyl/hapi-socketio-redis-chat-example
 
 ## Background Reading
 
@@ -316,6 +332,17 @@ http://highscalability.com/blog/2011/7/6/11-common-web-use-cases-solved-in-redis
 + How to Install and use Redis on Ubuntu
 https://www.digitalocean.com/community/tutorials/how-to-install-and-use-redis
 
+### Publish Subscribe
+
+Probably the most useful feature of Redis for building real-time apps is
+publish/subscribe. Thankfully, Thoughtbot have written a good post
+explaining it: https://robots.thoughtbot.com/redis-pub-sub-how-does-it-work
+
+Their article uses Ruby (_they are **still** a rails shop..._)
+but our **Practical** tutorial uses node.js, so after you have read the
+intro, checkout: https://github.com/dwyl/hapi-socketio-redis-chat-example
+
+
 #### Which Redis-as-a-Service (Heroku Addon)?
 
 There are a few options for hosted Redis on Heroku: https://addons.heroku.com/?q=redis
@@ -326,6 +353,30 @@ There are a few options for hosted Redis on Heroku: https://addons.heroku.com/?q
 + https://addons.heroku.com/openredis *no free* plan. #fail (commitment to use the latest version of redis is good. notifications when reaching 90% of memory.
 
 > ***Conclusion***: **rediscloud**!
+
+#### Get your RedisCloud Instance
+
+The easiest way to get your RedisCloud instance is to create a Heroku app
+and add the RedisCloud Addon to it.
+
+In your heroku app, click on `Resources`, type `redis` into the search box:
+![learn-redis-01-find-addon](https://cloud.githubusercontent.com/assets/194400/9439757/c51197a4-4a61-11e5-82f6-c84e84a55437.png)
+
+Select RedisCloud Free plan and add to your heroku app:
+![learn-redis-02-select-rediscloud](https://cloud.githubusercontent.com/assets/194400/9439767/d53c1b5e-4a61-11e5-8874-3c6418700166.png)
+
+Confirm its been enabled
+![learn-redis-03-enabled](https://cloud.githubusercontent.com/assets/194400/9439776/e58c1248-4a61-11e5-817b-7d865a2cf7ef.png)
+
+Go to `Settings` and Click to view the `Config Vars` then grab the `REDISCLOUD_URL` Config Variable so you can use it:
+![learn-redis-04-config-vars](https://cloud.githubusercontent.com/assets/194400/9439779/ed4d12e8-4a61-11e5-9d05-ff4ad322bb0e.png)
+
+Now you can export it and use it in your node.js app:
+```sh
+export REDISCLOUD_URL=redis://rediscloud:yourpassword@pub-redis-12345.eu-west-1-2.1.ec2.garantiadata.com:12345
+```
+Which you can then access in your node.js app using `process.env.REDISCLOUD_URL`
+
 
 #### Tips and Tricks
 
@@ -462,3 +513,14 @@ then there's ***only one*** place to store your data; ***Redis***.
 
 ***Yes***! Do it! *Discover* the power of data structures and the
 speed of an in-memory datastore!
+
+
+### Q: How should we store JSON?
+
+Redis **strings _vs_** Redis **hashes** to represent **JSON**: efficiency? http://stackoverflow.com/questions/16375188/redis-strings-vs-redis-hashes-to-represent-json-efficiency
+
+# Last But *Not Least*
+
+Highly recommend reading ***Redis In Action*** to anyone wanting to use Redis _professionally_.
+see: http://www.amazon.com/Redis-Action-Josiah-L-Carlson/dp/1617290858
+For *educational purposes* see: http://www.it-ebooks.info/book/2447/
