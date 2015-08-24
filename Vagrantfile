@@ -25,7 +25,7 @@ mv ./redis-server.conf /etc/init/redis-server.conf
 sudo start redis-server
 
 # check that node.js can access redis db (from inside learn-redis)
-npm install && npm test
+sudo npm install && npm test
 
 SCRIPT
 
@@ -36,7 +36,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu-nodejs-redis-server"
   config.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
 
-  config.vm.network :forwarded_port, guest: 6379, host: 6379
+  config.vm.network :forwarded_port, guest: 6379, host: 6379,  auto_correct: true
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
   config.vm.network :private_network, ip: "192.168.33.10"
