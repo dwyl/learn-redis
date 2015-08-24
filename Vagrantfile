@@ -5,17 +5,23 @@ apt-get update
 # nodejs
 sudo apt-get -y install build-essential tcl8.5 g++ git git-core nodejs npm
 # use https://github.com/visionmedia/n to get latest node+npm
-# sudo npm install n -g
-# sudo n stable
-# node -v
-# install Redis following http://redis.io/topics/quickstart
-wget http://download.redis.io/redis-stable.tar.gz
-tar xvzf redis-stable.tar.gz
-cd redis-stable
-# sudo make me a sandiwch --> https://xkcd.com/149/
-sudo make
-sudo make install
-redis-server
+
+sudo npm install n -g
+sudo n stable
+node -v
+
+# disable init.d from running redis
+sudo update-rc.d redis-server disable
+
+# Using Upstart to *Automatically* Start Redis when the VM Boots
+git clone https://github.com/dwyl/learn-redis.git && cd learn-redis
+mv ./redis-server.conf /etc/init/redis-server.conf
+
+# Start Redis for the first time:
+sudo start redis-server
+
+# check that node.js can access redis db (from inside learn-redis)
+npm install && npm test
 
 SCRIPT
 

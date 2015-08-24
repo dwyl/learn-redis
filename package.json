@@ -36,7 +36,7 @@
     "view-cov": "open .",
     "codeclimate": "CODECLIMATE_REPO_TOKEN=c9033dfa3211fa82e57329c650a780c82b449e8f02a93b70561e2692a2a699e3 ./node_modules/codeclimate-test-reporter/bin/codeclimate.js < ./coverage/lcov.info",
     "coverage": "./node_modules/.bin/istanbul cover ./node_modules/tape/bin/tape ./test/*.js | node_modules/tap-spec/bin/cmd.js && ./node_modules/.bin/istanbul check-coverage --statements 100 --functions 100 --lines 100 --branches 100",
-    "test": "istanbul cover ./node_modules/tape/bin/tape ./test/*.js | node_modules/tap-spec/bin/cmd.js",
+    "test": "./node_modules/tape/bin/tape ./test/*.js",
     "spec": "node ./node_modules/tape/bin/tape ./test/*.js | node_modules/tap-spec/bin/cmd.js"
   },
   "engines": {
