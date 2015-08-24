@@ -17,7 +17,7 @@ node -v
 # disable init.d from running redis
 sudo update-rc.d redis-server disable
 
-# Using Upstart to *Automatically* Start Redis when the VM Boots
+# Using Upstart to Auto-Start Redis when the VM Boots
 git clone https://github.com/dwyl/learn-redis.git && cd learn-redis
 mv ./redis-server.conf /etc/init/redis-server.conf
 
@@ -36,10 +36,11 @@ Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu-nodejs-redis-server"
   config.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
 
-  config.vm.network :forwarded_port, guest: 6379, host: 6379,  auto_correct: true
+  config.vm.network :forwarded_port, guest: 6379, host: 6379, auto_correct: true
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  config.vm.network :private_network, ip: "192.168.33.10"
+  # config.vm.network :private_network, ip: "192.168.33.10"
+  config.vm.network :private_network, ip: "127.0.0.1"
   config.vm.provision :shell, :inline => $script
 
 end
