@@ -10,8 +10,8 @@ apt-get update
 apt-get -y install build-essential tcl8.5 g++ git git-core nodejs npm redis-server redis-tools
 
 # use https://github.com/visionmedia/n to get latest node+npm
-sudo npm install n -g
-sudo n stable
+npm install n -g
+n stable
 node -v
 
 # disable init.d from running redis
@@ -25,7 +25,7 @@ mv ./redis-server.conf /etc/init/redis-server.conf
 sudo start redis-server
 
 # check that node.js can access redis db (from inside learn-redis)
-sudo npm install && npm test
+npm install && npm test
 
 SCRIPT
 
