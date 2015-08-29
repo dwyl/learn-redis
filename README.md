@@ -3,6 +3,7 @@
 [![Code Climate](https://codeclimate.com/github/dwyl/learn-redis/badges/gpa.svg)](https://codeclimate.com/github/dwyl/learn-redis)
 [![Node version](https://img.shields.io/node/v/esta.svg?style=flat)](http://nodejs.org/download/)
 [![Dependency Status](https://david-dm.org/dwyl/learn-redis.svg)](https://david-dm.org/dwyl/learn-redis)
+[![HitCount](https://hitt.herokuapp.com/dwyl/learn-redis.svg)](https://github.com/dwyl/learn-redis)
 
 Need to store/access your data as ***fast*** as possible? Try Redis!
 
