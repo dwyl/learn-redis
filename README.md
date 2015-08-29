@@ -151,7 +151,7 @@ A search for "redis" on **NPM**: https://www.npmjs.com/search?q=redis returns *m
 
 Don't be overwhelmed by the *quantity* of modules, focus on *quality*.
 
-#### The 2 Modules we *Use* and *Recommend*
+#### The 2 modules we *use* and *recommend* for connecting to Redis
 
 + **redis** https://www.npmjs.com/package/redis written in "*Pure JavaScript*"
 this is *by far* the ***most popular*** node module for Redis,
@@ -169,13 +169,34 @@ Its faster, so what's the catch?
 > [*compiler*](http://stackoverflow.com/questions/5691795/how-to-compile-c-programming-in-windows-7)  
 > to get Redis *working* and that can sometimes take *hours*!
 
-Our ***recommendation*** is to **use** the **redis** module
-because the documentation is better, but install **hiredis**
-so that it uses the C binding.
+#### Update: Our *experience* lead us to create `redis-connection`
 
+Given that it easy to open ***too many connections to redis***
+we created [https://github.com/dwyl/***redis-connection***](https://github.com/dwyl/redis-connection) to re-use the connection across all files/modules in our project.
+The [***redis-connection***](https://github.com/dwyl/redis-connection)
+module is just a few lines you can read/understand in 5 mins and takes
+the hassle out of creating connections
+see:
+
+Our ***recommendation*** is to **use** the **redis** module
+for simple apps, but for anything more interesting
+(*e.g: an app that has handlers spread across several files*)
+we recommend using [***redis-connection***](https://github.com/dwyl/redis-connection)
+
+Install:
 ```sh
-npm install redis hiredis --save
+npm install redis-connection --save
 ```
+Use:
+```js
+var redisClient = require('redis-connection')();
+redisClient.set('hello', 'world');
+redisClient.get('hello', function (err, reply) {
+  console.log('hello', reply.toString()); // hello world
+});
+```
+
+
 
 ### Basic Example
 
@@ -184,12 +205,11 @@ See: **examples/basic.js**
 Paste hand-type (or copy-paste) this code into a file called **basic.js**
 
 ```js
-var redis  = require("redis");
-var client = redis.createClient();
+var redisClient = require('redis-connection')();
 
-client.set("Hello", "World", redis.print);
+redisClient.set("Hello", "World", redis.print);
 
-client.get("Hello", function(err, reply) {
+redisClient.get("Hello", function(err, reply) {
    // reply is null when the key is missing
    console.log('Hello ' + reply);
 });
@@ -332,7 +352,7 @@ http://highscalability.com/blog/2011/7/6/11-common-web-use-cases-solved-in-redis
 + How to Install and use Redis on Ubuntu
 https://www.digitalocean.com/community/tutorials/how-to-install-and-use-redis
 
-### Publish Subscribe
+### Publish / Subscribe
 
 Probably the most useful feature of Redis for building real-time apps is
 publish/subscribe. Thankfully, Thoughtbot have written a good post
