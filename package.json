@@ -1,6 +1,6 @@
 {
   "name": "learn-redis",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A quick introduction to using Redis to store/retrieve data for your node.js app!",
   "main": "server.js",
   "repository": {
@@ -24,7 +24,8 @@
   "homepage": "https://github.com/nelsonic/learn-redis",
   "dependencies": {
     "hiredis": "^0.4.1",
-    "redis": "^0.12.1"
+    "redis": "^0.12.1",
+    "redis-connection": "^1.0.2"
   },
   "devDependencies": {
     "codeclimate-test-reporter": "0.1.0",
