@@ -538,7 +538,9 @@ speed of an in-memory datastore!
 
 ### Q: How should we store JSON?
 
-Redis **strings _vs_** Redis **hashes** to represent **JSON**: efficiency? http://stackoverflow.com/questions/16375188/redis-strings-vs-redis-hashes-to-represent-json-efficiency
+Redis **strings _vs_** Redis **hashes** to represent **JSON**: efficiency? [Stackoverflow: Redis strings vs Redis hashes to represent JSON: efficiency?](http://stackoverflow.com/questions/16375188/redis-strings-vs-redis-hashes-to-represent-json-efficiency)
+
+Alternately, use [flat](https://github.com/hughsk/flat) as described in [Store Javascript objects in Redis with Node.js the right way](https://medium.com/@stockholmux/store-javascript-objects-in-redis-with-node-js-the-right-way-1e2e89dbbf64).
 
 # Last But *Not Least*
 
