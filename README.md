@@ -432,6 +432,7 @@ then open a web browser to View/Set your Data
 
 ##### Alternative GUIs
 
++ Redsmin https://redsmin.com (really useful for Redis instances hosted in the Cloud, forever free for 1 server)
 + Redis Desktop Manager https://github.com/uglide/RedisDesktopManager (an installed desktop app)
 + List of others: https://redislabs.com/blog/so-youre-looking-for-the-redis-gui
 
