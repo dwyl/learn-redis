@@ -88,9 +88,9 @@ brew install redis
 ```
 ![brew-install-redis](https://cloud.githubusercontent.com/assets/194400/8672886/38cf0e2c-2a2a-11e5-9869-bf6d876dc8b1.png)
 
+#### Windows?
 
-> For people *stuck* on Windows (if you don't already have a **C Compiler**)
-> and people who prefer to "contain" their ,
+> For people *stuck* on Windows (if you don't already have a **C Compiler** and people who prefer to "contain" their apps...)
 ***we recommend*** using [***Vagrant***](https://github.com/docdis/learn-vagrant)
 to run Redis (and your app) in a (Linux) Virtual Machine (VM).
 > We have included a Vagrantfile in this repo which you can use to
@@ -170,13 +170,13 @@ Its faster, so what's the catch?
 > [*compiler*](http://stackoverflow.com/questions/5691795/how-to-compile-c-programming-in-windows-7)  
 > to get Redis *working* and that can sometimes take *hours*!
 
-#### Update: Our *experience* lead us to create `redis-connection`
+#### *Update*: Our *experience* lead us to create `redis-connection`
 
 Given that it easy to open ***too many connections to redis***
-we created [https://github.com/dwyl/***redis-connection***](https://github.com/dwyl/redis-connection) to re-use the connection across all files/modules in our project.
+we created [***redis-connection***](https://github.com/dwyl/redis-connection) to re-use a *single* connection across all files/modules in a project.
 The [***redis-connection***](https://github.com/dwyl/redis-connection)
-module is just a few lines you can read/understand in 5 mins and takes
-the hassle out of creating connections
+module is just a few lines you can read/understand in 5 mins
+and takes the hassle out of creating (and *closing*) connections
 see:
 
 Our ***recommendation*** is to **use** the **redis** module
@@ -322,9 +322,15 @@ something gets updated on one of them, how do we reflect this change on the othe
 Answer: all devices "*subscribe*" to the change event and receive the latest
 values as a result.
 
+## *Practical* Simple Example Using Redis & Node.js
+
+>  A "Hit Counter" to track how many people have viewed your GitHub Repository: https://github.com/nelsonic/hits
+
+
 ## Advanced (*Real*) Example
 
-> For a more complete example see our Chat App:
+> For a more complete example featuring "Publish/Subscribe" for
+ ***real-time*** interactivity, see our Chat App:
 https://github.com/dwyl/hapi-socketio-redis-chat-example
 
 ## Background Reading
