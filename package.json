@@ -1,6 +1,6 @@
 {
   "name": "learn-redis",
-  "version": "1.0.3",
+  "version": "2.1.0",
   "description": "A quick introduction to using Redis to store/retrieve data for your node.js app!",
   "main": "server.js",
   "repository": {
@@ -24,13 +24,13 @@
   "homepage": "https://github.com/nelsonic/learn-redis",
   "dependencies": {
     "hiredis": "^0.4.1",
-    "redis": "^2.0.0",
+    "redis": "^2.1.0",
     "redis-connection": "^2.0.0"
   },
   "devDependencies": {
-    "istanbul": "^0.3.18",
+    "istanbul": "^0.3.22",
     "tap-spec": "^4.1.0",
-    "tape": "^4.2.0"
+    "tape": "^4.2.1"
   },
   "scripts": {
     "view-cov": "open .",
