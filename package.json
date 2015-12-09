@@ -28,7 +28,7 @@
     "redis-connection": "^4.0.1"
   },
   "devDependencies": {
-    "istanbul": "^0.4.12",
+    "istanbul": "^0.4.1",
     "tap-spec": "^4.1.1",
     "tape": "^4.2.2"
   },
@@ -39,6 +39,6 @@
     "spec": "node ./node_modules/tape/bin/tape ./test/*.js | node_modules/tap-spec/bin/cmd.js"
   },
   "engines": {
-    "node": ">= 0.12"
+    "node": ">= 4.2.3"
   }
 }
