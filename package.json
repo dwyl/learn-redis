@@ -17,20 +17,20 @@
     "intro"
   ],
   "author": "@nelsonic <contact.nelsonic@gmail.com> (https://github.com/nelsonic)",
-  "license": "ISC",
+  "license": "GPL-2.0",
   "bugs": {
     "url": "https://github.com/nelsonic/learn-redis/issues"
   },
   "homepage": "https://github.com/nelsonic/learn-redis",
   "dependencies": {
     "hiredis": "^0.4.1",
-    "redis": "^2.1.0",
-    "redis-connection": "^2.0.0"
+    "redis": "^2.4.2",
+    "redis-connection": "^4.0.1"
   },
   "devDependencies": {
-    "istanbul": "^0.3.22",
-    "tap-spec": "^4.1.0",
-    "tape": "^4.2.1"
+    "istanbul": "^0.4.12",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.2.2"
   },
   "scripts": {
     "view-cov": "open .",
