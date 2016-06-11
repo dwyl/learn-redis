@@ -306,17 +306,17 @@ It returns 1 if the value is there and 0 if it is not.
 
 + [***Transactions***](http://redis.io/topics/transactions) allow the execution
 of a group of commands in a single step, with ***two important guarantees***:
-1. All the commands in a transaction are serialized and executed sequentially.
+  * All the commands in a transaction are serialized and executed sequentially.
 It can never happen that a request issued by another client is served in the
 middle of the execution of a Redis transaction. This guarantees that the
 **commands** are **executed as** a ***single isolated operation***.
-2. Either **all** of the commands ***or none*** are processed,
+  * Either **all** of the commands ***or none*** are processed,
 so a Redis transaction is also
 [***atomic***](http://en.wikipedia.org/wiki/Atomicity_%28database_systems%29).
 
 + [***PubSub***](http://redis.io/commands/pubsub) lets you "listen" for changes
 in the value of a key.
-Useful if you ant to know when something has been changed by someone.
+Useful if you want to know when something has been changed by someone.
 e.g: you have two devices (Desktop & Mobile) logged into an app,
 something gets updated on one of them, how do we reflect this change on the other?
 Answer: all devices "*subscribe*" to the change event and receive the latest
