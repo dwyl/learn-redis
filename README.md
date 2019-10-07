@@ -31,7 +31,7 @@ the entire server is *less than a Megabyte*
 (*smaller is better when it comes to executable size*),
 Redis is ***built for speed***.
 
-### Use Case
+### Use Case
 
 + ***sessions*** in your app (which require a DB/io read on *every request* but
   don't contain *content*) should be checked/set as quickly as possible.
@@ -48,7 +48,7 @@ it can store any *content* you need to serve in your app; from simple components
 ***First thing*** you need to do - if you haven't already - is ***go through*** the
 ***online tutorial***: http://try.redis.io/ (30mins to learn and take notes)
 
-#### Make Sure you *Understand*
+#### Make Sure you *Understand*
 
 You can learn/practice all these commands [*online*](http://try.redis.io)
 ***before*** installing Redis:
@@ -409,7 +409,7 @@ simplicity (great for beginners and pros alike) and speed.
 
 ## Frequently Asked Questions (FAQ)
 
-### Q: What does Redis mean/stand for?
+### Q: What does Redis mean/stand for?
 
 The name Redis is an acronym for: **RE**mote **DI**ctionary **S**erver
 
